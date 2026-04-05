@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibertyEquity Solutions | Debt Relief with Home Equity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg { background: linear-gradient(135deg, #047857 0%, #10b981 100%); }
+    </style>
+</head>
+<body class="bg-zinc-50">
+
+<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <i class="fa-solid fa-house text-4xl text-emerald-700"></i>
+            <span class="text-3xl font-bold text-emerald-800">LibertyEquity</span>
+        </div>
+        <a href="tel:+12062343036" class="font-semibold text-emerald-700">+1 (206) 234-3036</a>
+    </div>
+</nav>
+
+<header class="hero-bg text-white py-28 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight">Debt Relief Through Home Equity</h1>
+        <p class="mt-6 text-xl">We help USA homeowners pay off high-interest debt and replace it with one manageable payment.</p>
+        <button onclick="showApplyModal()" class="mt-10 bg-white text-emerald-700 px-12 py-6 rounded-2xl text-xl font-semibold">Get Started Free</button>
+    </div>
+</header>
+
+<div class="bg-emerald-900 text-white py-5 text-center text-sm">
+    7808 Humble Way, Lanham, MD 20706 &nbsp; | &nbsp; greengreenzerozero@gmail.com &nbsp; | &nbsp; +1 (206) 234-3036
+</div>
+
+<!-- REVIEWS -->
+<section class="py-20 bg-emerald-50">
+    <div class="max-w-7xl mx-auto px-8">
+        <h2 class="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-3xl shadow">
+                <div class="text-amber-400 text-2xl">★★★★★</div>
+                <p class="mt-4">"Cleared $92k in credit card debt. My monthly payment dropped from $2,900 to $1,050. Life-changing!"</p>
+                <div class="mt-8 font-medium">- Robert Martinez, Texas</div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow">
+                <div class="text-amber-400 text-2xl">★★★★★</div>
+                <p class="mt-4">"Professional team. Paid off medical bills and student loans. I finally have peace of mind."</p>
+                <div class="mt-8 font-medium">- Maria Gonzalez, Arizona</div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow">
+                <div class="text-amber-400 text-2xl">★★★★★</div>
+                <p class="mt-4">"Best financial decision I ever made. The process was simple and fast."</p>
+                <div class="mt-8 font-medium">- James Thompson, Washington</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORM MODAL -->
+<div id="apply-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
+    <div class="bg-white rounded-3xl max-w-lg w-full mx-4 p-8">
+        <button onclick="hideApplyModal()" class="float-right text-4xl text-gray-400">×</button>
+        <h3 class="text-3xl font-bold mb-6">Start Your Free Consultation</h3>
+        
+        <form name="debt-relief-form" method="POST" data-netlify="true" onsubmit="submitForm(event)" class="space-y-6">
+            <input type="hidden" name="form-name" value="debt-relief-form">
+            <input type="text" name="full-name" placeholder="Full Name" required class="w-full px-6 py-4 border rounded-2xl">
+            <input type="tel" name="phone" placeholder="Phone Number" required class="w-full px-6 py-4 border rounded-2xl">
+            <input type="number" name="home-value" placeholder="Home Value ($)" required class="w-full px-6 py-4 border rounded-2xl">
+            <input type="number" name="total-debt" placeholder="Total Debt to Pay Off ($)" required class="w-full px-6 py-4 border rounded-2xl">
+            <button type="submit" class="w-full bg-emerald-600 text-white py-6 rounded-2xl font-semibold text-lg">Submit Request</button>
+        </form>
+    </div>
+</div>
+
+<!-- SUCCESS SCREEN -->
+<div id="success-screen" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
+    <div class="bg-white rounded-3xl max-w-lg w-full mx-4 p-8 text-center">
+        <div class="mx-auto w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-4xl mb-6">🎉</div>
+        <h3 class="text-3xl font-bold text-emerald-700">Congratulations, <span id="user-name"></span>!</h3>
+        <p class="mt-2 text-xl">Your estimated HELOC amount is</p>
+        <p class="text-5xl font-bold text-emerald-600 mt-2">$214,800</p>
+        <p class="mt-6 text-gray-600">You could pay off your debt and still have cash left over for home improvements.</p>
+        <p class="mt-8 text-emerald-600 text-sm">A HELOC specialist will call you in the next 5 minutes at the number you provided.</p>
+        <button onclick="hideSuccess()" class="mt-10 w-full py-6 bg-emerald-600 text-white rounded-3xl font-semibold">Back to Homepage</button>
+    </div>
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/12016672293" target="_blank" class="fixed bottom-8 right-8 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-4xl text-white shadow-2xl z-50">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+function showApplyModal() {
+    document.getElementById('apply-modal').classList.remove('hidden');
+    document.getElementById('apply-modal').classList.add('flex');
+}
+function hideApplyModal() {
+    const modal = document.getElementById('apply-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('full-name').value || "there";
+    hideApplyModal();
+    document.getElementById('user-name').textContent = name;
+    document.getElementById('success-screen').classList.remove('hidden');
+    document.getElementById('success-screen').classList.add('flex');
+}
+
+function hideSuccess() {
+    const success = document.getElementById('success-screen');
+    success.classList.add('hidden');
+    success.classList.remove('flex');
+}
+</script>
+</body>
+</html>
